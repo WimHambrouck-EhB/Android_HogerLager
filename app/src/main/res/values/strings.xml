@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Hoger Lager</string>
+    <string name="lower">Lower</string>
+    <string name="equal">Equal</string>
+    <string name="higher">Higher</string>
+    <string name="you_lost_the_game">You just lost the game!</string>
+    <string name="score">Score: %d</string>
+    <string name="radio">Radio</string>
+</resources>
