@@ -7,8 +7,12 @@ class Game {
         LOWER, EQUAL, HIGHER
     }
 
-    private var score = 0
-    private var currentNumber = 0
+    var score: Int = 0
+        private set
+
+    var currentNumber = 0
+        private set
+
     private val random: Random = Random()
 
 
@@ -63,13 +67,5 @@ class Game {
         }
         currentNumber = nextNumber
         return correct
-    }
-
-    fun getScore(): Int {
-        return score
-    }
-
-    fun getCurrentNumber(): Int {
-        return currentNumber
     }
 }

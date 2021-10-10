@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
      * and current random number respectively
      */
     private fun updateGUI() {
-        binding.txtScore.text = getString(R.string.score, game.getScore())
-        binding.txtNumber.text = String.valueOf(game.getCurrentNumber())
+        binding.txtScore.text = getString(R.string.score, game.score)
+        binding.txtNumber.text = String.valueOf(game.currentNumber)
     }
 }
