@@ -6,16 +6,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.demo.hogerlager.databinding.ActivityMainBinding
-import java.lang.String
 import androidx.lifecycle.ViewModelProvider
-
-
 
 
 class MainActivity : AppCompatActivity() {
 
     private val logTag = MainActivity::class.java.simpleName
-    private var game: Game = Game()
+    private lateinit var game: Game
 
     private lateinit var binding: ActivityMainBinding
 
@@ -28,14 +25,14 @@ class MainActivity : AppCompatActivity() {
         // get game class from ViewModel. Using a ViewModel to store the game allows the game
         // state to be persisted throughout the lifecycle of the Activity
         // (e.g.: the score will not reset if the activity is rotated)
-        val model: MainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        val gameViewModel: GameViewModel = ViewModelProvider(this).get(GameViewModel::class.java)
 
         // if you add the following line to your module's gradle file:
         //     implementation 'androidx.activity:activity-ktx:1.3.1'
         // you can use the abbreviated syntax to retrieve the ViewModel:
-        //     val model: MainViewModel by viewModels()
+        //     val model: GameViewModel by viewModels()
 
-        game = model.game
+        game = gameViewModel.game
 
         val listener = View.OnClickListener {
             btnClicked(it)
@@ -80,6 +77,6 @@ class MainActivity : AppCompatActivity() {
      */
     private fun updateGUI() {
         binding.txtScore.text = getString(R.string.score, game.score)
-        binding.txtNumber.text = String.valueOf(game.currentNumber)
+        binding.txtNumber.text = game.currentNumber.toString()
     }
 }
